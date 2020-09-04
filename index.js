@@ -5,13 +5,13 @@ $(()=> {
     e.preventDefault(); 
     console.log('start')
 
+
     async function getFood () {
       let data = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${$('.search-bar').val()}&number=10&apiKey=45f77eeec63346cdb3c6db8bfd6183e3`)
+      let dataOne = await data.json()
+      let recipe = await fetch(`https://api.spoonacular.com/recipes/${dataOne.id}/summary?apiKey=45f77eeec63346cdb3c6db8bfd6183e3`)
+      
 
-      let recipe = await fetch(`https://api.spoonacular.com/recipes/${data.id}/summary?apiKey=45f77eeec63346cdb3c6db8bfd6183e3`)
-          
-      // .then(response => response.json())
-          // .then(data => {
   
             console.log(data);
             function recipeSuggestion(fridgeFood) {
@@ -30,12 +30,8 @@ $(()=> {
                 });
 
                 $('.recipeOp').html(recipeFind.join(' '));
-
-          
         };
         recipeSuggestion(data);
-      
-      // });
       };
       getFood();
     });
