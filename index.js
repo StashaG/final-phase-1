@@ -19,7 +19,9 @@ $(()=> {
                     <div class="card-body">
                       <p class="card-text" id="recipe">${data.id}</p>
                     </div>`
+
                 });
+                
                 $('.recipeOp').html(recipeFind.join(' '))
                 // $('.recipeOp').append(recipeFind)
       
