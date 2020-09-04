@@ -3,12 +3,18 @@ $(()=> {
 
   $('form').on("submit", function(e){
     e.preventDefault(); 
+    console.log('start')
 
-      let recipe = fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${$('.search-bar').val()}&number=10&apiKey=45f77eeec63346cdb3c6db8bfd6183e3`)
-          .then(response => response.json())
-          .then(data => {
+    async function getFood () {
+      let data = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${$('.search-bar').val()}&number=10&apiKey=45f77eeec63346cdb3c6db8bfd6183e3`)
+
+      let recipe = await fetch(`https://api.spoonacular.com/recipes/${data.id}/summary?apiKey=45f77eeec63346cdb3c6db8bfd6183e3`)
+          
+      // .then(response => response.json())
+          // .then(data => {
+  
             console.log(data);
-            function recipesuggestion(fridgeFood) {
+            function recipeSuggestion(fridgeFood) {
                 console.log("I'm here")
                 console.log(fridgeFood)
         
@@ -17,22 +23,22 @@ $(()=> {
                     <h5 class="card-title" id="recipeName">${data.title}</h5>
                     <img class="card-img-top"id="image" src="${data.image}" alt="Card image cap">
                     <div class="card-body">
-                      <p class="card-text" id="recipe">${data.id}</p>
+                      <p class="card-text" id="recipe">${recipe.summary}</p>
+                    </div>
                     </div>`
 
                 });
-                
-                $('.recipeOp').html(recipeFind.join(' '))
-                // $('.recipeOp').append(recipeFind)
-      
+
+                $('.recipeOp').html(recipeFind.join(' '));
+
+          
         };
-        recipesuggestion(data);
+        recipeSuggestion(data);
       
-      });
-
-    
+      // });
+      };
+      getFood();
     });
-
   });
 
 
