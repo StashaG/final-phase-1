@@ -2,21 +2,22 @@ $(()=> {
   $('form').on("submit", function(e){
     e.preventDefault();
     async function getFood () {
-      let data = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${$('.search-bar').val()}&number=10&apiKey=45f77eeec63346cdb3c6db8bfd6183e3`)
+      let data = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${$('.search-bar').val()}&number=10&apiKey=${apiKey2}`)
       let items = await data.json();
       foodID(items);
     }
     function foodID(items) {
       items.forEach((item, i) => {
-        fetch(`https://api.spoonacular.com/recipes/${item.id}/summary?apiKey=45f77eeec63346cdb3c6db8bfd6183e3`)
-          .then(data => data.json()).then(recipe => getRecipe(recipe));
+        fetch(`https://api.spoonacular.com/recipes/${item.id}/summary?apiKey=${apiKey2}`)
+          .then(data => data.json()).then(recipe => getRecipe(recipe, item.image));
       });
     }
-    function getRecipe(item) {
+    function getRecipe(item, image) {
+      console.log(item);
       const recipe = `
         <div class="card" style="width: 18rem;">
           <h5 class="card-title" id="recipeName">${item.title}</h5>
-          <img class="card-img-top"id="image" src="${item.image}" alt="Card image cap" />
+          <img class="card-img-top"id="image" src="${image}" alt="Card image cap" />
           <div class="card-body">
             <p class="card-text" id="recipe">${item.summary}</p>
           </div>
