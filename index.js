@@ -9,10 +9,10 @@ $(()=> {
     function foodID(items) {
       items.forEach((item, i) => {
         fetch(`https://api.spoonacular.com/recipes/${item.id}/summary?apiKey=45f77eeec63346cdb3c6db8bfd6183e3`)
-          .then(data => data.json()).then(recipe => getFood(recipe));
+          .then(data => data.json()).then(recipe => getRecipe(recipe));
       });
     }
-    function getFood(item) {
+    function getRecipe(item) {
       const recipe = `
         <div class="card" style="width: 18rem;">
           <h5 class="card-title" id="recipeName">${item.title}</h5>
@@ -22,11 +22,17 @@ $(()=> {
           </div>
         </div>
       `;
+      console.log('Check')
       $('#recipeOp').append(recipe);
     }
     getFood();
+    console.log('Here')
   });
+  
 });
+
+
+
 // $(()=> {
 //   console.log("Ready")
 
