@@ -65,7 +65,7 @@ const createMeal = (meal) => {
 				</iframe>
 			</div>
 		</div>`
-        : ""
+        : "We're sorry the video is currently unavailable!"
     }
 	`;
 
