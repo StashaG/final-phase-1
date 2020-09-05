@@ -4,15 +4,15 @@ $(()=> {
     async function getFood () {
       let data = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${$('.search-bar').val()}&number=10&apiKey=45f77eeec63346cdb3c6db8bfd6183e3`)
       let items = await data.json();
-      renderItems(items);
+      foodID(items);
     }
-    function renderItems(items) {
+    function foodID(items) {
       items.forEach((item, i) => {
         fetch(`https://api.spoonacular.com/recipes/${item.id}/summary?apiKey=45f77eeec63346cdb3c6db8bfd6183e3`)
-          .then(data => data.json()).then(recipe => renderItem(recipe));
+          .then(data => data.json()).then(recipe => getFood(recipe));
       });
     }
-    function renderItem(item) {
+    function getFood(item) {
       const recipe = `
         <div class="card" style="width: 18rem;">
           <h5 class="card-title" id="recipeName">${item.title}</h5>
