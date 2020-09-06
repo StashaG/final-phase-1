@@ -8,15 +8,8 @@ Pantry Chef is an app that allows a user to input ingredients they have on hand 
 - [Bootstrap](http://getbootstrap.com/)
 - [Spoonacular API](https://spoonacular.com/food-api)
 
-## Team Members
-
-=======
-## Tools Used
-----
-* Bootstrap
 
 ## Team Members
-------
 
   * Stacey Graham
   * Robert Powell
