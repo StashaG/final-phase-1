@@ -27,34 +27,36 @@ const createMeal = (meal) => {
     }
   }
 
+  $(function () {
+    $("#tabs").tabs();
+  });
+
   const newInnerHTML = `
-		<div class="row">
-			<div class="columns five">
-				<img src="${meal.strMealThumb}" alt="Meal Image">
-				${
-          meal.strCategory
-            ? `<p><strong>Category:</strong> ${meal.strCategory}</p>`
-            : ""
-        }
-				${meal.strArea ? `<p><strong>Area:</strong> ${meal.strArea}</p>` : ""}
-				${
-          meal.strTags
-            ? `<p><strong>Tags:</strong> ${meal.strTags
-                .split(",")
-                .join(", ")}</p>`
-            : ""
-        }
-				<h5>Ingredients:</h5>
-				<ul>
-					${ingredients.map((ingredient) => `<li>${ingredient}</li>`).join("")}
-				</ul>
-			</div>
-			<div class="columns seven">
-				<h4>${meal.strMeal}</h4>
-				<p>${meal.strInstructions}</p>
-			</div>
-		</div>
-		
+        <div id= "tabs">
+            <ul>
+             <li><a href="#tabs-1">Meal</a></li>
+             <li><a href="#tabs-2">Ingredients</a></li>
+             <li><a href="#tabs-3">Directions</a></li>
+           </ul>
+           <div id="tabs-1">
+             <h3>${meal.strMeal}</h3>
+             <img src="${meal.strMealThumb}" alt="Meal Image">
+             
+           </div>
+           <div id ="tabs-2">
+            <h5>Ingredients:</h5>
+            <ul>
+               ${ingredients
+                 .map((ingredient) => `<li>${ingredient}</li>`)
+                 .join("")}
+            </ul>
+           </div>
+           <div id="tabs-3">
+            <h4>${meal.strMeal}</h4>
+            <p>${meal.strInstructions}</p>
+            </div>
+
+
 	`;
 
   meal_container.innerHTML = newInnerHTML;

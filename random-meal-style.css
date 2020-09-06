@@ -1,42 +1,46 @@
-/* * {
-  box-sizing: border-box;
-} */
-
-body {
-  /* background-image: url("images/food-main.jpg");
-  background-repeat: no-repeat; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 30px 0;
-  min-height: calc(100vh - 60px);
-}
-
-img {
-  max-width: 100%;
-}
-
-p {
-  margin-bottom: 5px;
-}
-
-h3 {
-  margin: 0;
-}
-
-h5 {
-  margin: 10px 0;
-}
-
-li {
-  margin-bottom: 0;
-}
-
 .meal {
-  margin: 20px 0;
+  width: 500px;
+  margin: 100px auto;
 }
+.ui-wiget-header {
+  background: none;
+  border: none;
+}
+#tabs {
+  border: none;
+}
+.ui-tabs .ui-tabs-panel {
+  border: 1px solid lightgrey;
+  border-radius: 2px;
+  padding: 5% 10%;
+}
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default,
+.ui-button,
+html .ui-buttion.ui-state-disabled:hover,
+html .ui-button.ui-state-disabled:active {
+  /*tab color*/
+  background: steelblue;
 
-.text-center {
-  text-align: center;
+  border: none;
+}
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-wiget-header .ui-state-active,
+a.ui-button:active,
+.ui-button:active,
+.ui-button.ui-state-active:hover {
+  /*tab hover color*/
+  background: lightseagreen;
+}
+.ui-state-default a,
+.ui-state-default a:link,
+.ui-state-default a:visited,
+a.ui-button,
+a:link.ui-button,
+a:visited.ui-button,
+.ui-button {
+  /*tab text color*/
+  color: white;
 }
