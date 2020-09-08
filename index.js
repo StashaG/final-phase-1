@@ -29,8 +29,7 @@ $(()=> {
       console.log(sourceU);
 
         let instruct = fetch(`https://api.spoonacular.com/recipes/extract?url=${sourceU}&apiKey=${apiKey}`)
-            
-            .then(data => console.log(data));
+            .then(data => data.json());
             console.log('fetch')
             console.log(instruct)
           
@@ -43,6 +42,7 @@ $(()=> {
             <p class="card-text" id="instruct"></p>
             <p class="card-text" id="recipe">${item.summary}</p>
           </div>
+          <button type="button" class="btn btn-warning pickMe">PICK THIS RECIPE</button>
         </div>
       `;
       $('#recipeOp').append(recipe);
