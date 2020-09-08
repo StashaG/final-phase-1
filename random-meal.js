@@ -54,10 +54,7 @@ const createMeal = (meal) => {
            <div id="tabs-3">
             <h4>${meal.strMeal}</h4>
             <p>${meal.strInstructions}</p>
-            </div>
-
-
-	`;
+            </div>`;
 
   meal_container.innerHTML = newInnerHTML;
 };
