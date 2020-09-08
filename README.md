@@ -8,7 +8,7 @@ Pantry Chef is an app that allows a user to input ingredients they have on hand 
 - [Bootstrap](http://getbootstrap.com/)
 - [Spoonacular API](https://spoonacular.com/food-api)
 - [MealDB](https://www.themealdb.com/api.php)
-- [jQuery](https://jqueryui.com/)
+- [jQuery UI](https://jqueryui.com/)
 
 
 ## Team Members
