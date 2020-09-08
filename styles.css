@@ -1,0 +1,24 @@
+body {
+    background-image: url("images/food-main.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#recipeOp {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    margin: 10px;
+}
+
+.card {
+    background: rgba(255, 192, 56, .8);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.card:hover {
+    background: rgba(236, 76, 76, .8);
+    transition: all 0.3s ease-in-out 0s;
+}
