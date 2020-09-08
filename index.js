@@ -2,7 +2,7 @@ $(()=> {
   $('form').on("submit", function(e){
     e.preventDefault();
     async function getFood () {
-      let data = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${$('.search-bar').val()}&number=1&apiKey=${apiKey}`)
+      let data = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${$('.search-bar').val()}&number=20&apiKey=${apiKey}`)
       console.log(data);
       let items = await data.json();
       foodID(items);
