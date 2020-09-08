@@ -33,6 +33,7 @@ $(() => {
       console.log("Check");
       $("#recipeOp").append(recipe);
     }
+    $('#recipeOp').empty();
     getFood();
     console.log("Here");
   });
