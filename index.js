@@ -6,12 +6,14 @@ $(()=> {
       let items = await data.json();
       foodID(items);
     }
+
     function foodID(items) {
       items.forEach((item, i) => {
         fetch(`https://api.spoonacular.com/recipes/${item.id}/summary?apiKey=${apiKey2}`)
           .then(data => data.json()).then(recipe => getRecipe(recipe, item.image));
       });
     }
+
     function getRecipe(item, image) {
       console.log(item);
       const recipe = `
@@ -30,6 +32,11 @@ $(()=> {
     getFood();
     console.log('Here')
   });
+
+
+
+
+  
   
 });
 

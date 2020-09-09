@@ -16,9 +16,13 @@ body {
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
+    height: 400px;
+    overflow: hidden;
 }
 
 .card:hover {
     background: rgba(236, 76, 76, .8);
     transition: all 0.3s ease-in-out 0s;
+    overflow: visible;
+    height: auto;
 }
