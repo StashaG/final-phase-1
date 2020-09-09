@@ -1,42 +1,90 @@
 $(() => {
   $("form").on("submit", function (e) {
     e.preventDefault();
+<<<<<<< HEAD
     async function getFood() {
       let data = await fetch(
         `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${$(
           ".search-bar"
         ).val()}&number=10&apiKey=${apiKey}`
       );
+=======
+    async function getFood () {
+      let data = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${$('.search-bar').val()}&number=20&apiKey=${apiKey}`)
+      // console.log(data);
+>>>>>>> e4d54882dea146f64ace7daadadecd5779c195b2
       let items = await data.json();
       foodID(items);
     }
+
     function foodID(items) {
       items.forEach((item, i) => {
+<<<<<<< HEAD
         fetch(
           `https://api.spoonacular.com/recipes/${item.id}/summary?apiKey=${apiKey}`
         )
           .then((data) => data.json())
           .then((recipe) => getRecipe(recipe, item.image));
       });
+=======
+          fetch(`https://api.spoonacular.com/recipes/${item.id}/information?apiKey=${apiKey}`)
+            .then(data => data.json()).then(recipe => getRecipe(recipe, item.image));
+            
+        });
+>>>>>>> e4d54882dea146f64ace7daadadecd5779c195b2
     }
     function getRecipe(item, image) {
-      console.log(item);
+      // console.log(item);
+      // sourceU = item.sourceUrl;
+      // console.log(sourceU);
+
+      //   let instruct = fetch(`https://api.spoonacular.com/recipes/extract?url=${sourceU}&apiKey=${apiKey}`)
+      //       .then(data => data.json());
+      //       console.log('fetch')
+      //       console.log(instruct)
+          
+    
       const recipe = `
         <div class="card" style="width: 18rem;">
           <h5 class="card-title" id="recipeName">${item.title}</h5>
           <img class="card-img-top"id="image" src="${image}" alt="Card image cap" />
           <div class="card-body">
+            <p class="card-text" id="instruct"></p>
             <p class="card-text" id="recipe">${item.summary}</p>
           </div>
+          <button id="mealPick" type="button" class="btn btn-warning">PICK THIS RECIPE</button>
         </div>
       `;
+<<<<<<< HEAD
       console.log("Check");
       $("#recipeOp").append(recipe);
+=======
+      $('#recipeOp').append(recipe);
+      //
+      $('#mealPick').click(function() {
+        console.log('New Card');
+        $('#recipeOp').empty();
+        const recipeChoice = `
+        <div class="card" style="width: 18rem;">
+          <h5 class="card-title" id="recipeName">${item.id}</h5>
+          <img class="card-img-top"id="image" src="${image}" alt="Card image cap" />
+          <div class="card-body">
+            <p class="card-text" id="instruct"></p>
+            <p class="card-text" id="recipe">${item.sourceUrl}</p>
+          </div>
+          <button id="mealPick" type="button" class="btn btn-warning">PICK THIS RECIPE</button>
+        </div>`;
+        console.log(recipeChoice)
+        $('#recipeOp').append(recipeChoice);
+      });
+>>>>>>> e4d54882dea146f64ace7daadadecd5779c195b2
     }
     $('#recipeOp').empty();
+    console.log('empty')
     getFood();
     console.log("Here");
   });
+<<<<<<< HEAD
 });
 
 // $(()=> {
@@ -64,16 +112,34 @@ $(() => {
 //                       <p class="card-text" id="recipe">${recipe.summary}</p>
 //                     </div>
 //                     </div>`
+=======
 
-//                 });
 
-//                 $('.recipeOp').html(recipeFind.join(' '));
-//         };
-//         recipeSuggestion(data);
-//       };
-//       getFood();
-//     });
-//   });
+
+
+  
+  
+});
+
+// $('#mealPick').click(function() {
+//   console.log('New Card');
+//   // $('#recipeOp').empty();
+//   // const recipe = `
+//   // <div class="card" style="width: 18rem;">
+//   //   <h5 class="card-title" id="recipeName">${item.title}</h5>
+//   //   <img class="card-img-top"id="image" src="${image}" alt="Card image cap" />
+//   //   <div class="card-body">
+//   //     <p class="card-text" id="instruct"></p>
+//   //     <p class="card-text" id="recipe">${item.summary}</p>
+//   //   </div>
+//   //   <button id="mealPick" type="button" class="btn btn-warning">PICK THIS RECIPE</button>
+//   // </div>`;
+// });
+
+
+>>>>>>> e4d54882dea146f64ace7daadadecd5779c195b2
+
+
 
 //     $('form').on("submit", function(e){
 //       e.preventDefault();
