@@ -2,33 +2,62 @@ $(()=> {
   $('form').on("submit", function(e){
     e.preventDefault();
     async function getFood () {
-      let data = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${$('.search-bar').val()}&number=10&apiKey=${apiKey2}`)
+      let data = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${$('.search-bar').val()}&number=20&apiKey=${apiKey}`)
+      // console.log(data);
       let items = await data.json();
       foodID(items);
     }
 
     function foodID(items) {
       items.forEach((item, i) => {
-        fetch(`https://api.spoonacular.com/recipes/${item.id}/summary?apiKey=${apiKey2}`)
-          .then(data => data.json()).then(recipe => getRecipe(recipe, item.image));
-      });
+          fetch(`https://api.spoonacular.com/recipes/${item.id}/information?apiKey=${apiKey}`)
+            .then(data => data.json()).then(recipe => getRecipe(recipe, item.image));
+            
+        });
     }
-
     function getRecipe(item, image) {
-      console.log(item);
+      // console.log(item);
+      // sourceU = item.sourceUrl;
+      // console.log(sourceU);
+
+      //   let instruct = fetch(`https://api.spoonacular.com/recipes/extract?url=${sourceU}&apiKey=${apiKey}`)
+      //       .then(data => data.json());
+      //       console.log('fetch')
+      //       console.log(instruct)
+          
+    
       const recipe = `
         <div class="card" style="width: 18rem;">
           <h5 class="card-title" id="recipeName">${item.title}</h5>
           <img class="card-img-top"id="image" src="${image}" alt="Card image cap" />
           <div class="card-body">
+            <p class="card-text" id="instruct"></p>
             <p class="card-text" id="recipe">${item.summary}</p>
           </div>
+          <button id="mealPick" type="button" class="btn btn-warning">PICK THIS RECIPE</button>
         </div>
       `;
-      console.log('Check')
       $('#recipeOp').append(recipe);
+      //
+      $('#mealPick').click(function() {
+        console.log('New Card');
+        $('#recipeOp').empty();
+        const recipeChoice = `
+        <div class="card" style="width: 18rem;">
+          <h5 class="card-title" id="recipeName">${item.id}</h5>
+          <img class="card-img-top"id="image" src="${image}" alt="Card image cap" />
+          <div class="card-body">
+            <p class="card-text" id="instruct"></p>
+            <p class="card-text" id="recipe">${item.sourceUrl}</p>
+          </div>
+          <button id="mealPick" type="button" class="btn btn-warning">PICK THIS RECIPE</button>
+        </div>`;
+        console.log(recipeChoice)
+        $('#recipeOp').append(recipeChoice);
+      });
     }
     $('#recipeOp').empty();
+    console.log('empty')
     getFood();
     console.log('Here')
   });
@@ -40,45 +69,24 @@ $(()=> {
   
 });
 
+// $('#mealPick').click(function() {
+//   console.log('New Card');
+//   // $('#recipeOp').empty();
+//   // const recipe = `
+//   // <div class="card" style="width: 18rem;">
+//   //   <h5 class="card-title" id="recipeName">${item.title}</h5>
+//   //   <img class="card-img-top"id="image" src="${image}" alt="Card image cap" />
+//   //   <div class="card-body">
+//   //     <p class="card-text" id="instruct"></p>
+//   //     <p class="card-text" id="recipe">${item.summary}</p>
+//   //   </div>
+//   //   <button id="mealPick" type="button" class="btn btn-warning">PICK THIS RECIPE</button>
+//   // </div>`;
+// });
 
 
-// $(()=> {
-//   console.log("Ready")
-
-//   $('form').on("submit", function(e){
-//     e.preventDefault(); 
-//     console.log('start')
 
 
-//     async function getFood () {
-//       let data = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${$('.search-bar').val()}&number=10&apiKey=45f77eeec63346cdb3c6db8bfd6183e3`)
-//       let dataOne = await data.json()
-//       let recipe = await fetch(`https://api.spoonacular.com/recipes/${dataOne.id}/summary?apiKey=45f77eeec63346cdb3c6db8bfd6183e3`)
-
-  
-//             console.log(data);
-//             function recipeSuggestion(fridgeFood) {
-//                 console.log("I'm here")
-//                 console.log(fridgeFood)
-        
-//                 recipeFind = fridgeFood.map(data => {
-//                     return `<div class="card" style="width: 18rem;">
-//                     <h5 class="card-title" id="recipeName">${data.title}</h5>
-//                     <img class="card-img-top"id="image" src="${data.image}" alt="Card image cap">
-//                     <div class="card-body">
-//                       <p class="card-text" id="recipe">${recipe.summary}</p>
-//                     </div>
-//                     </div>`
-
-//                 });
-
-//                 $('.recipeOp').html(recipeFind.join(' '));
-//         };
-//         recipeSuggestion(data);
-//       };
-//       getFood();
-//     });
-//   });
 
 
               
