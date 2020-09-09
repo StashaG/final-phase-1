@@ -71,11 +71,8 @@ $(() => {
     getFood();
     console.log("Here");
   });
-<<<<<<< HEAD
 });
 
-<<<<<<< HEAD
-=======
 // $(()=> {
 //   console.log("Ready")
 
@@ -101,15 +98,6 @@ $(() => {
 //                       <p class="card-text" id="recipe">${recipe.summary}</p>
 //                     </div>
 //                     </div>`
-=======
-
-  
-
-
-
-  
-  
-});
 
 // $('#mealPick').click(function() {
 //   console.log('New Card');
@@ -125,11 +113,6 @@ $(() => {
 //   //   <button id="mealPick" type="button" class="btn btn-warning">PICK THIS RECIPE</button>
 //   // </div>`;
 // });
-
-
->>>>>>> e4d54882dea146f64ace7daadadecd5779c195b2
-
-
 
 //     $('form').on("submit", function(e){
 //       e.preventDefault();
@@ -160,4 +143,3 @@ $(() => {
 //             <p>Weapon Choice: ${$('#weaponChoiceV option:selected').text()}</p>`)
 
 //     };
->>>>>>> development
