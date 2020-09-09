@@ -7,6 +7,7 @@ $(()=> {
       let items = await data.json();
       foodID(items);
     }
+
     function foodID(items) {
       items.forEach((item, i) => {
           fetch(`https://api.spoonacular.com/recipes/${item.id}/information?apiKey=${apiKey}`)
@@ -14,8 +15,6 @@ $(()=> {
             
         });
     }
-
-
     function getRecipe(item, image) {
       // console.log(item);
       // sourceU = item.sourceUrl;
@@ -62,6 +61,11 @@ $(()=> {
     getFood();
     console.log('Here')
   });
+
+
+
+
+  
   
 });
 
