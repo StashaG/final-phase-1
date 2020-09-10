@@ -18,11 +18,66 @@ body {
     border-radius: 10px;
     height: 400px;
     overflow: hidden;
+    
 }
 
 .card:hover {
-    background: rgba(236, 76, 76, .8);
+    background: hsla(0, 100%, 80%, 0.8);
     transition: all 0.3s ease-in-out 0s;
     overflow: visible;
     height: auto;
+    color: white;
 }
+
+
+.loading {
+    position: fixed;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    top: 0;
+    left: 0;
+
+}
+
+
+.form-inline {
+    float: none;
+    display: inline-block;
+    text-align: center;
+}
+
+#get_meal_main {
+    background-color: #e44142;
+}
+
+#main_submit {
+    border-color: #e44142 !important;
+    color: #e44142 !important;
+}
+
+#main_submit:hover {
+    color:#fff !important;
+    background-color:#e44142;
+    border-color:#e44142;
+}
+
+
+#main_submit.focus,#main_submit:focus {
+    box-shadow:0 0 0 .2rem #f9ba2e !important;
+}
+
+#main_submit.disabled,#main_submit:disabled{
+    color:#f9ba2e !important;
+    background-color:transparent !important;
+}
+
+#main_submit:not(:disabled):not(.disabled).active,#main_submit:not(:disabled):not(.disabled):active,.show>#main_submit.dropdown-toggle {
+    color:#fff !important;
+    background-color:#f9ba2e !important;
+    border-color: #f9ba2e !important;
+}
+
