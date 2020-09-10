@@ -6,8 +6,9 @@ $(()=> {
       let data = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${$('.search-bar').val()}&number=20&apiKey=${apiKey}`)
       console.log(data);
       let items = await data.json();
-      foodID(items);
       removeLoading();
+      foodID(items);
+      
     }
 
     function foodID(items) {
