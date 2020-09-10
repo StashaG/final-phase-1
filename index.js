@@ -15,6 +15,7 @@ $(()=> {
             
         });
     }
+    
     function getRecipe(item, image) { 
       const recipe = `
         <div class="card" style="width: 18rem;">
