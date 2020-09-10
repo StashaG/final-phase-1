@@ -1,11 +1,14 @@
 $(()=> {
   $('form').on("submit", function(e){
     e.preventDefault();
+    loading();
     async function getFood () {
       let data = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${$('.search-bar').val()}&number=20&apiKey=${apiKey}`)
-      // console.log(data);
+      console.log(data);
       let items = await data.json();
+      removeLoading();
       foodID(items);
+      
     }
 
     function foodID(items) {
@@ -57,9 +60,9 @@ $(()=> {
       });
     }
     $('#recipeOp').empty();
-    console.log('empty')
+    
     getFood();
-    console.log('Here')
+    
   });
 
 
@@ -69,6 +72,19 @@ $(()=> {
   
   
 });
+
+
+
+
+function loading (){
+  console.log("loading")
+  $(".container").append("<div class = 'loading'><img src = 'images/loading.gif'></div>")
+} 
+
+function removeLoading () {
+  console.log("loading removed")
+  $(".loading").remove();
+}
 
 // $('#mealPick').click(function() {
 //   console.log('New Card');

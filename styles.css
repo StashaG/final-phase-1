@@ -19,6 +19,7 @@ body {
     border-radius: 10px;
     height: 400px;
     overflow: hidden;
+    
 }
 
 .card:hover {
@@ -26,7 +27,23 @@ body {
     transition: all 0.3s ease-in-out 0s;
     overflow: visible;
     height: auto;
+    color: white;
 }
+
+
+.loading {
+    position: fixed;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    top: 0;
+    left: 0;
+
+}
+
 
 .form-inline {
     float: none;
@@ -65,3 +82,4 @@ body {
     background-color:#f9ba2e !important;
     border-color: #f9ba2e !important;
 }
+
