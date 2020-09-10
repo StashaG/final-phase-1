@@ -17,3 +17,4 @@ Pantry Chef is an app that allows a user to input ingredients they have on hand 
   * Robert Powell
   * Elijah Wilcott
   * Ben Varnum
+  * Daniel Gallagher

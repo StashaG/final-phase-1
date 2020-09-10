@@ -2,6 +2,7 @@ $(() => {
   $("form").on("submit", function (e) {
     e.preventDefault();
 <<<<<<< HEAD
+<<<<<<< HEAD
     async function getFood() {
       let data = await fetch(
         `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${$(
@@ -13,8 +14,16 @@ $(() => {
       let data = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${$('.search-bar').val()}&number=20&apiKey=${apiKey}`)
       // console.log(data);
 >>>>>>> e4d54882dea146f64ace7daadadecd5779c195b2
+=======
+    loading();
+    async function getFood () {
+      let data = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${$('.search-bar').val()}&number=20&apiKey=${apiKey}`)
+      console.log(data);
+>>>>>>> 8fb8be621f86dfe924ef9fe451604d1daf167492
       let items = await data.json();
+      removeLoading();
       foodID(items);
+      
     }
 
     function foodID(items) {
@@ -80,9 +89,13 @@ $(() => {
 >>>>>>> e4d54882dea146f64ace7daadadecd5779c195b2
     }
     $('#recipeOp').empty();
-    console.log('empty')
+    
     getFood();
+<<<<<<< HEAD
     console.log("Here");
+=======
+    
+>>>>>>> 8fb8be621f86dfe924ef9fe451604d1daf167492
   });
 <<<<<<< HEAD
 });
@@ -121,6 +134,19 @@ $(() => {
   
   
 });
+
+
+
+
+function loading (){
+  console.log("loading")
+  $(".container").append("<div class = 'loading'><img src = 'images/loading.gif'></div>")
+} 
+
+function removeLoading () {
+  console.log("loading removed")
+  $(".loading").remove();
+}
 
 // $('#mealPick').click(function() {
 //   console.log('New Card');
