@@ -15,41 +15,54 @@ $(()=> {
             
         });
     }
+    
+    
     function getRecipe(item, image) { 
+      let details = JSON.stringify(item.extendedIngredients);
+      let analyze = JSON.stringify(item.analyzedInstructions);
+      
+      //Pull name
+
+      // var getIng = details.map(function (ingNew) {
+      //   return ingNew.name;  
+      // });
+      
+      // ES6
+      let getIng = details.map(ingNew => {
+        return ingNew.name;
+      });
+      
+      console.log(getIng);
+
       const recipe = `
         <div class="card" style="width: 18rem;">
           <h5 class="card-title" id="recipeName">${item.title}</h5>
           <img class="card-img-top"id="image" src="${image}" alt="Card image cap" />
           <button id="mealPick" type="button" class="btn btn-warning">PICK THIS RECIPE</button>
           <div class="card-body">
-            <p class="card-text" id="instruct"></p>
             <p class="card-text" id="recipe">${item.summary}</p>
+            <p class="card-text" id="recipe">${details}</p>
+            <p class="card-text" id="recipe">${analyze}</p>
           </div>
-        </div>
-      `;
+        </div>`
+        console.log(recipe);
+      ;
       $('#recipeOp').append(recipe);
 
       //MAKES RECIPE CHOICE DIV
 
-      $('#mealPick').click(function() {
+      $('#mealPick').one("click", function() {
         console.log('New Card');
 
         $('#recipeOp').empty();
-        console.log(item);
-      // sourceU = item.sourceUrl;
-      // console.log(sourceU);
-
-      //   let instruct = fetch(`https://api.spoonacular.com/recipes/extract?url=${sourceU}&apiKey=${apiKey}`)
-      //       .then(data => data.json());
-      //       console.log('fetch')
-      //       console.log(instruct)
+          
         const recipeChoice = `
         <div class="card" style="width: 18rem;">
           <h5 class="card-title" id="recipeName">${item.title}</h5>
           <img class="card-img-top"id="image" src="${image}" alt="Card image cap" />
           <div class="card-body">
-            <p class="card-text" id="instruct"></p>
-            <p class="card-text" id="recipe">${item.sourceUrl}</p>
+          <p class="card-text" id="recipe">${details}</p>
+            <p class="card-text" id="instruct">${item.instructions}</p>
           </div>
         </div>`;
         console.log(recipeChoice)
@@ -60,56 +73,17 @@ $(()=> {
     console.log('empty')
     getFood();
     console.log('Here')
+    
   });
-
-
-
-
-
-  
   
 });
 
-// $('#mealPick').click(function() {
-//   console.log('New Card');
-//   // $('#recipeOp').empty();
-//   // const recipe = `
-//   // <div class="card" style="width: 18rem;">
-//   //   <h5 class="card-title" id="recipeName">${item.title}</h5>
-//   //   <img class="card-img-top"id="image" src="${image}" alt="Card image cap" />
-//   //   <div class="card-body">
-//   //     <p class="card-text" id="instruct"></p>
-//   //     <p class="card-text" id="recipe">${item.summary}</p>
-//   //   </div>
-//   //   <button id="mealPick" type="button" class="btn btn-warning">PICK THIS RECIPE</button>
-//   // </div>`;
-// });
 
 
 
 
 
-
-              
-              
-        //     $('form').on("submit", function(e){
-        //       e.preventDefault(); 
-        //       let searchString = $('.search-bar').val();
-        //       urlEncodedSearchString = encodeURIComponent(searchString);
-        //       console.log(urlEncodedSearchString);
-        
-                
-        //             renderMovies(data.Search);
-        //           });
-        //         console.log(newMovie);
-        //         console.log('Is it broken');
-              
-        
-        //       });
-        
-        
-        //   });
-        
+      
         //     function ButtonClicked() {
         //         $('#formsubmitbutton').hide();
         //         $('#formElem').hide();
