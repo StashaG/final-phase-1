@@ -1,11 +1,14 @@
 $(()=> {
   $('form').on("submit", function(e){
     e.preventDefault();
+    loading();
     async function getFood () {
       let data = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${$('.search-bar').val()}&number=20&apiKey=${apiKey}`)
-      // console.log(data);
+      console.log(data);
       let items = await data.json();
+      removeLoading();
       foodID(items);
+      
     }
 
     function foodID(items) {
@@ -69,14 +72,37 @@ $(()=> {
       });
     }
     $('#recipeOp').empty();
-    console.log('empty')
+    
     getFood();
-    console.log('Here')
     
   });
   
 });
 
+function loading (){
+  console.log("loading")
+  $(".container").append("<div class = 'loading'><img src = 'images/loading.gif'></div>")
+} 
+
+function removeLoading () {
+  console.log("loading removed")
+  $(".loading").remove();
+}
+
+// $('#mealPick').click(function() {
+//   console.log('New Card');
+//   // $('#recipeOp').empty();
+//   // const recipe = `
+//   // <div class="card" style="width: 18rem;">
+//   //   <h5 class="card-title" id="recipeName">${item.title}</h5>
+//   //   <img class="card-img-top"id="image" src="${image}" alt="Card image cap" />
+//   //   <div class="card-body">
+//   //     <p class="card-text" id="instruct"></p>
+//   //     <p class="card-text" id="recipe">${item.summary}</p>
+//   //   </div>
+//   //   <button id="mealPick" type="button" class="btn btn-warning">PICK THIS RECIPE</button>
+//   // </div>`;
+// });
 
 
 
