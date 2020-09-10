@@ -9,6 +9,7 @@ body {
     flex-wrap: wrap;
     padding: 10px;
     margin: 10px;
+    color: white;
 }
 
 .card {
@@ -26,3 +27,7 @@ body {
     overflow: visible;
     height: auto;
 }
+
+.ui-autocomplete-loading {
+    background: white url("images/ui-anim_basic_16x16.gif") right center no-repeat;
+  }
