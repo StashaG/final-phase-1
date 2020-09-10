@@ -16,7 +16,10 @@ $(()=> {
         });
     }
     
+<<<<<<< HEAD
     
+=======
+>>>>>>> development
     function getRecipe(item, image) { 
       let details = JSON.stringify(item.extendedIngredients);
       let analyze = JSON.stringify(item.analyzedInstructions);
