@@ -1,11 +1,14 @@
-$(()=> {
-  $('form').on("submit", function(e){
+$(() => {
+  $("form").on("submit", function (e) {
     e.preventDefault();
     loading();
-    
-    async function getFood () {
-      let data = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${$('.search-bar').val()}&number=20&apiKey=${apiKey}`)
-      // console.log(data);
+
+    async function getFood() {
+      let data = await fetch(
+        `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${$(
+          ".search-bar"
+        ).val()}&number=10&apiKey=${apiKey}`
+      );
       let items = await data.json();
       removeLoading();
       foodID(items);
@@ -14,10 +17,14 @@ $(()=> {
 
     function foodID(items) {
       items.forEach((item, i) => {
-          fetch(`https://api.spoonacular.com/recipes/${item.id}/information?apiKey=${apiKey}`)
-            .then(data => data.json()).then(recipe => getRecipe(recipe, item.image));
-            
-        });
+
+        fetch(
+          `https://api.spoonacular.com/recipes/${item.id}/summary?apiKey=${apiKey}`
+        )
+          .then((data) => data.json())
+          .then((recipe) => getRecipe(recipe, item.image));
+      });
+
     }
     
     function getRecipe(item, image) { 
@@ -31,7 +38,6 @@ $(()=> {
           return ingAmt.original;
         });
           console.log(getAmount);
-    
 
       const recipe = `
         <div class="card" style="width: 18rem;">
@@ -45,9 +51,9 @@ $(()=> {
         </div>`;
       $('#recipeOp').append(recipe);
 
-    $(`#${item.id}`).on("click", function() {
-      console.log('New Card');
-      $('#recipeOp').empty();
+      $(`#${item.id}`).on("click", function() {
+        console.log('New Card');
+       $('#recipeOp').empty();
           
       $(function () {
         $("#tabs").tabs();
@@ -89,15 +95,6 @@ $(()=> {
     getFood();
   });
 });
-
-
-  //     $(function () {
-  //       $("#tabs").tabs();
-  //     });
-    
-
-  // });
-
 
 
 function loading (){
