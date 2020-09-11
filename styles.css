@@ -83,3 +83,6 @@ body {
     border-color: #f9ba2e !important;
 }
 
+#home {
+    float: left !important; 
+}
