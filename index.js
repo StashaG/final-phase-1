@@ -54,11 +54,11 @@ $(() => {
       // });
       
       // ES6
-      let getIng = details.map(ingNew => {
-        return ingNew.name;
-      });
+      // let getIng = details.map(ingNew => {
+      //   return ingNew.name;
+      // });
       
-      console.log(getIng);
+      // console.log(getIng);
 
       const recipe = `
         <div class="card" style="width: 18rem;">
