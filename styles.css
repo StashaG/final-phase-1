@@ -2,6 +2,7 @@ body {
     background-image: url("images/food-main.jpg");
     background-size: cover;
     background-attachment: fixed;
+    background-position: right;
 }
 
 #recipeOp {
@@ -51,6 +52,7 @@ body {
 }
 
 #get_meal_main {
+    color: #f9ba2e;
     background-color: #e44142;
 }
 
@@ -60,7 +62,7 @@ body {
 }
 
 #main_submit:hover {
-    color:#fff !important;
+    color:#f9ba2e !important;
     background-color:#e44142;
     border-color:#e44142;
 }
@@ -81,3 +83,6 @@ body {
     border-color: #f9ba2e !important;
 }
 
+#home {
+    float: left !important; 
+}
