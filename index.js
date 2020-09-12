@@ -82,6 +82,10 @@ const suggestions = document.querySelector('.suggestions');
 searchInput.addEventListener('change', displayMatches);
 searchInput.addEventListener('keyup', displayMatches);
 
+recipeOp.addEventListener('click',function() {
+  suggestions.innerHTML = ''
+});
+
 
     $('form').on("submit", function(e){
       console.log($('.search-bar').val());
