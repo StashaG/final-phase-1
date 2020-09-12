@@ -1,7 +1,8 @@
 
 $(()=> {
- //Autocomplete feature
-//  const items = [];
+  //  const items = [];
+ //Autocomplete feature jQuery widget
+
 
 $(function () {
   var getData = function (request, response) {
@@ -28,6 +29,7 @@ $(function () {
 });
   
   
+//Autocomplete  "Ajax Type Ahead"
 
 //   $(".search-bar").on('input', function() {
 //     // console.log($('.search-bar').val());
