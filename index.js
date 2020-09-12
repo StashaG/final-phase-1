@@ -56,6 +56,7 @@ function getRecipesWithFood(items) {
 }
 
 function getRecipe(item, image) {
+  $('.name').empty();
   let details = item.extendedIngredients;
   let getIng = details.map(ingNew => {
     return ingNew.name;
