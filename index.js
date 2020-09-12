@@ -56,7 +56,6 @@ function getRecipesWithFood(items) {
 }
 
 function getRecipe(item, image) {
-  $('.name').empty();
   let details = item.extendedIngredients;
   let getIng = details.map(ingNew => {
     return ingNew.name;
@@ -125,7 +124,6 @@ $(`#${item.id}`).on("click", function() {
 
 
 function loading (){
-  $('#recipeOp').empty();
   $(".container").append("<div class = 'loading'><img src = 'images/loading.gif'></div>")
 }
 
