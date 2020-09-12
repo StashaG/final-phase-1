@@ -23,13 +23,22 @@ body {
 }
 
 .card:hover {
-    background: hsla(0, 100%, 80%, 0.8);
+    background: #e44142;
     transition: all 0.3s ease-in-out 0s;
     overflow: visible;
     height: auto;
     color: white;
 }
 
+.btn-warning {
+    color: #f9ba2e !important;
+    background-color: #e44142 !important;
+}
+
+.btn-warning:hover {
+    color: #e44142 !important;
+    background-color: #f9ba2e !important;
+}
 
 .loading {
     position: fixed;
@@ -150,7 +159,7 @@ a:visited.ui-button,
 }
 
 .navbar-light {
-    background: #ee4b4b !important;
+    background: #e44142 !important;
 }
 
 div#meal {
