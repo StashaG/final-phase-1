@@ -1,6 +1,7 @@
 # Pantry Chef App
 
-Pantry Chef is an app that allows a user to input ingredients they have on hand and the app displays meal recipes that the user can make with those ingredients.
+Pantry Chef is an app that allows a user to input ingredients they have on hand and the app displays meal recipes that the user can make with those ingredients. 
+A user can also click the random recipe button and a random recipe will display that the user can make.
 
 
 ## Technologies Used
@@ -13,8 +14,10 @@ Pantry Chef is an app that allows a user to input ingredients they have on hand 
 
 ## Team Members
 
+  * Daniel Gallagher
   * Stacey Graham
   * Robert Powell
-  * Elijah Wilcott
   * Ben Varnum
-  * Daniel Gallagher
+  * Elijah Wilcott
+  
+  
