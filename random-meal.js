@@ -2,14 +2,19 @@ const get_meal_btn = document.getElementById("get_meal");
 const meal_container = document.getElementById("meal");
 
 get_meal_btn.addEventListener("click", () => {
+  //calls loading animation after button clicked
+  loading();
   fetch("https://www.themealdb.com/api/json/v1/1/random.php")
     .then((res) => res.json())
     .then((res) => {
       createMeal(res.meals[0]);
+      //removed gif after meals loaded
+      removeLoading();
     })
     .catch((e) => {
       console.warn(e);
     });
+  
 });
 
 const createMeal = (meal) => {
@@ -58,3 +63,4 @@ const createMeal = (meal) => {
 
   meal_container.innerHTML = newInnerHTML;
 };
+

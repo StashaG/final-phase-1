@@ -10,6 +10,16 @@ body {
     flex-wrap: wrap;
     padding: 10px;
     margin: 10px;
+    color: white;
+}
+
+.on-load-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #f9ba2e;
+    border-radius: 5px;
+    margin-top: 30px;
 }
 
 .card {
@@ -19,17 +29,26 @@ body {
     border-radius: 10px;
     height: 400px;
     overflow: hidden;
-    
+
 }
 
 .card:hover {
-    background: hsla(0, 100%, 80%, 0.8);
+    background: #e44142;
     transition: all 0.3s ease-in-out 0s;
     overflow: visible;
     height: auto;
     color: white;
 }
 
+.btn-warning {
+    color: #f9ba2e !important;
+    background-color: #e44142 !important;
+}
+
+.btn-warning:hover {
+    color: #e44142 !important;
+    background-color: #f9ba2e !important;
+}
 
 .loading {
     position: fixed;
@@ -73,6 +92,34 @@ body {
     border-color:#e44142;
 }
 
+.suggestions {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    /* perspective:20px; */
+  }
+
+  .suggestions li {
+    /* background: white; */
+    list-style: none;
+    /* border-bottom: 1px solid #d8d8d8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+    margin: 0;
+    padding: 20px;
+    transition: background 0.2s;
+    display: flex;
+    justify-content: space-between;
+    text-transform: capitalize;*/
+  }
+
+   /* .suggestions li:nth-child(even) {
+    transform: perspective(100px) rotateX(3deg) translateY(2px) scale(1.001);
+    background: linear-gradient(to bottom, #ffffff 0%, #efefef 100%);
+  }
+  .suggestions li:nth-child(odd) {
+    transform: perspective(100px) rotateX(-3deg) translateY(3px);
+    background: linear-gradient(to top, #ffffff 0%, #efefef 100%);
+  } */
 
 #main_submit.focus,#main_submit:focus {
     box-shadow:0 0 0 .2rem #f9ba2e !important;
@@ -146,11 +193,11 @@ a:visited.ui-button,
   }
 
 #home {
-    float: left !important; 
+    float: left !important;
 }
 
 .navbar-light {
-    background: #ee4b4b !important;
+    background: #e44142 !important;
 }
 
 div#meal {
