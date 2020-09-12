@@ -24,12 +24,12 @@ $(()=> {
       let getIng = details.map(ingNew => {
         return ingNew.name;
       });
-        console.log(getIng);
+        
 
       let getAmount = details.map(ingAmt => {
           return ingAmt.original;
         });
-          console.log(getAmount);
+          
     
 
       const recipe = `
@@ -44,7 +44,7 @@ $(()=> {
       $('#recipeOp').append(recipe);
 
     $(`#${item.id}`).on("click", function() {
-      console.log('New Card');
+      
       $('#recipeOp').empty();
           
       $(function () {
@@ -78,7 +78,7 @@ $(()=> {
                 </div>`;
     
     
-              console.log(recipeChoice)
+              
     
               $('#recipeOp').append(recipeChoice);
       });
@@ -91,11 +91,11 @@ $(()=> {
 
 
 function loading (){
-  console.log("loading")
+  
   $(".container").append("<div class = 'loading'><img src = 'images/loading.gif'></div>")
 } 
 
 function removeLoading () {
-  console.log("loading removed")
+  
   $(".loading").remove();
 }
