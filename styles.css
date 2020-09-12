@@ -52,12 +52,12 @@ body {
 }
 
 .override-button-style {
-    background-color: #f9ba2e;
+    background-color: #f9ba2e !important;
     color: #e44142;
 }
 
 .override-button-style:hover {
-    background-color: #f9ba2e;
+    background-color: #f9ba2e !important;
     color: #e44142;
 
 }
