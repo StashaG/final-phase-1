@@ -51,14 +51,20 @@ body {
     text-align: center;
 }
 
-#get_meal_main {
-    color: #f9ba2e;
-    background-color: #e44142;
+.override-button-style {
+    background-color: #f9ba2e !important;
+    color: #e44142;
+}
+
+.override-button-style:hover {
+    background-color: #f9ba2e !important;
+    color: #e44142;
+
 }
 
 #main_submit {
-    border-color: #e44142 !important;
-    color: #e44142 !important;
+    border-color: white !important;
+    color: #f9ba2e !important;
 }
 
 #main_submit:hover {
@@ -83,6 +89,74 @@ body {
     border-color: #f9ba2e !important;
 }
 
+.meal {
+    width: 500px;
+    margin: 100px auto;
+  }
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+.ui-wiget-header {
+    background: none;
+    border: none;
+  }
+
+#tabs {
+    border: none;
+  }
+
+.ui-tabs .ui-tabs-panel {
+    border: 1px solid lightgrey;
+    border-radius: 2px;
+  }
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default,
+.ui-button,
+html .ui-buttion.ui-state-disabled:hover,
+html .ui-button.ui-state-disabled:active {
+    /*tab color*/
+    background: #e44142;
+    border: none;
+  }
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-wiget-header .ui-state-active,
+a.ui-button:active,
+.ui-button:active,
+.ui-button.ui-state-active:hover {
+    /*tab hover color*/
+    background: #f9ba2e;
+  }
+
+.ui-state-default a,
+.ui-state-default a:link,
+.ui-state-default a:visited,
+a.ui-button,
+a:link.ui-button,
+a:visited.ui-button,
+.ui-button {
+    /*tab text color*/
+    color: white;
+  }
+
 #home {
     float: left !important; 
+}
+
+.navbar-light {
+    background: #ee4b4b !important;
+}
+
+div#meal {
+    margin: 10px 10px 30px 10px;
+}
+
+.header-text {
+    color: white;
 }
