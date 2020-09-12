@@ -58,10 +58,6 @@ function getRecipesWithFood(items) {
 
 function getRecipe(item, image) {
   let details = item.extendedIngredients;
-  let getIng = details.map(ingNew => {
-    return ingNew.name;
-  });
-
 
   let getAmount = details.map(ingAmt => {
       return ingAmt.original;
