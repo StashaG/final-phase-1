@@ -1,16 +1,6 @@
 
 $(()=> {
 
-  function loading (){
-
-    $(".container").append("<div class = 'loading'><img src = 'images/loading.gif'></div>")
-  }
-
-  function removeLoading () {
-
-    $(".loading").remove();
-  }
-
 const suggestions = document.querySelector('.suggestions');
 
 let items = [];//empty array to put food items into
@@ -131,3 +121,15 @@ $(`#${item.id}`).on("click", function() {
 }
 
 });
+
+
+function loading (){
+  $('#recipeOp').empty();
+  $('.name').empty();
+  $(".container").append("<div class = 'loading'><img src = 'images/loading.gif'></div>")
+}
+
+function removeLoading () {
+
+  $(".loading").remove();
+}
