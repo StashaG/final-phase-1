@@ -78,7 +78,7 @@ $(()=> {
                 </div>`;
     
     
-              console.log(recipeChoice)
+              
     
               $('#recipeOp').append(recipeChoice);
       });
@@ -91,11 +91,11 @@ $(()=> {
 
 
 function loading (){
-  console.log("loading")
+  
   $(".container").append("<div class = 'loading'><img src = 'images/loading.gif'></div>")
 } 
 
 function removeLoading () {
-  console.log("loading removed")
+  
   $(".loading").remove();
 }
