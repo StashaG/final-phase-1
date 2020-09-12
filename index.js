@@ -79,7 +79,6 @@ $('.hl').click(function(){
 })
 const searchInput = document.querySelector('.search-bar');
 const suggestions = document.querySelector('.suggestions');
-searchInput.addEventListener('change', displayMatches);
 searchInput.addEventListener('keyup', displayMatches);
 
 recipeOp.addEventListener('click',function() {
