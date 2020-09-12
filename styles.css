@@ -145,3 +145,8 @@ a:visited.ui-button,
     /*tab text color*/
     color: white;
   }
+
+#home {
+    float: left !important; 
+}
+
