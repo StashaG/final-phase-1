@@ -42,6 +42,7 @@ searchInput.addEventListener('keyup', getItems);
 document.getElementById('suggestions').addEventListener('click', e => getFoodsWithTitle(e.target.innerHTML));
 
 async function getFoodsWithTitle(title) {
+  $('#recipeOp').empty();
   const data = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${title}}&number=20&apiKey=${apiKey}`)
   const items = await data.json();
   getRecipesWithFood(items);
@@ -56,7 +57,6 @@ function getRecipesWithFood(items) {
 }
 
 function getRecipe(item, image) {
-  $('#recipeOp').empty();
   let details = item.extendedIngredients;
   let getIng = details.map(ingNew => {
     return ingNew.name;
