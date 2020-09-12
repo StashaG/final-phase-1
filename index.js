@@ -1,89 +1,49 @@
 
 $(()=> {
 
- //Autocomplete feature jQuery widget
+const suggestions = document.querySelector('.suggestions');
 
-
-// $(function () {
-//   var getData = function (request, response) {
-//       $.getJSON(
-//           `https://api.spoonacular.com/recipes/autocomplete?number=10&query=${$('.search-bar').val()}&apiKey=${apiKey}` + request.term,
-//           function (data) {
-//               response(data);
-//           });
-//   };
-
-//   var selectItem = function (event, ui) {
-//       $(".search-bar").val(ui.item.value);
-//       return false;
-//   }
-
-//   $(".search-bar").autocomplete({
-//       source: getData,
-//       select: selectItem,
-//       minLength: 4,
-//       change: function() {
-//           $(".search-bar").val("").css("display", 2);
-//       }
-//   });
-// });
-  
-  
-//Autocomplete  "Ajax Type Ahead"
 let items = [];//empty array to put food items into
-  $(".search-bar").on('input', function() {
-    // console.log($('.search-bar').val());
-    
-    const endpoint = `https://api.spoonacular.com/recipes/autocomplete?number=10&query=${$('.search-bar').val()}&apiKey=${apiKey}`;
-    console.log(endpoint);
-  
-    fetch(endpoint)
-    // .then(blob => console.log(blob));
-      .then(blob => blob.json())
-      .then(data => {
-        // console.log(data);
-        items.push(...data)
-        });  
-    // console.log(items);
-  
+
+const getItems = () => {
+  const endpoint = `https://api.spoonacular.com/recipes/autocomplete?number=10&query=${$('.search-bar').val()}&apiKey=${apiKey}`;
+
+  fetch(endpoint).then(blob => blob.json()).then(data => {
+    items = [];
+    items.push(...data)
   });
-  function findMatches(wordToMatch, items) {
-    return items.filter(foodItems => {
-    // here we need to figure out if the item is a match for what was searched
-    const regex = new RegExp(wordToMatch, 'gi');
-    return foodItems.title.match(regex)
-  });
-}
+  displayMatches();
+};
 
 function displayMatches() {
-  const matchArray = findMatches(this.value, items);
-  const html = matchArray.map(foodItems => {
-  const regex = new RegExp(this.value, 'gi');
-  const newFoodItem = foodItems.title.replace(regex, `<span class="hl">${this.value}</span>`);
-return `
-      <li>
-        <span class="name">${newFoodItem}</span>
-      </li>      
-`;
-}).join('');
-suggestions.innerHTML = html;
-}
+  suggestions.innerHTML = '';
+  const matchedItems = items.map(item => {
+    return `
+          <li>
+            <span class="name">${item.title}</span>
+          </li>
+    `;
+  });
+  suggestions.innerHTML = matchedItems.join('');
+};
+
 $('.hl').click(function(){
-  // console.log('hello');
-  // console.log($(this).text())
   fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${$(this).text()}&number=2`)
   .then(blob => blob.json())
   .then(data => {
     console.log(data);
-    });  
+    });
 })
 const searchInput = document.querySelector('.search-bar');
-const suggestions = document.querySelector('.suggestions');
-searchInput.addEventListener('keyup', displayMatches);
 
-recipeOp.addEventListener('click',function() {
-  suggestions.innerHTML = ''
-});
+searchInput.addEventListener('keyup', getItems);
+
+document.getElementById('suggestions').addEventListener('click', e => getFoodCard(e.target.innerHTML));
+
+const getFoodCard = title => {
+  let data = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${title}}&number=20&apiKey=${apiKey}`)
+  let items = await data.json();
+};
 
 
     $('form').on("submit", function(e){
@@ -91,21 +51,20 @@ recipeOp.addEventListener('click',function() {
       e.preventDefault();
       async function getFood () {
         let data = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${$('.search-bar').val()}&number=20&apiKey=${apiKey}`)
-        // console.log(data);
         let items = await data.json();
         foodID(items);
       }
 
-      
+
 
     function foodID(items) {
       items.forEach((item, i) => {
           fetch(`https://api.spoonacular.com/recipes/${item.id}/information?apiKey=${apiKey}`)
             .then(data => data.json()).then(recipe => getRecipe(recipe, item.image));
-            
+
         });
     }
-    function getRecipe(item, image) { 
+    function getRecipe(item, image) {
       const recipe = `
         <div class="card" style="width: 18rem;">
           <h5 class="card-title" id="recipeName">${item.title}</h5>
@@ -156,8 +115,8 @@ recipeOp.addEventListener('click',function() {
 
 
 
-  
-  
+
+
 });
 
 // $('#mealPick').click(function() {
@@ -180,30 +139,30 @@ recipeOp.addEventListener('click',function() {
 
 
 
-              
-              
+
+
         //     $('form').on("submit", function(e){
-        //       e.preventDefault(); 
+        //       e.preventDefault();
         //       let searchString = $('.search-bar').val();
         //       urlEncodedSearchString = encodeURIComponent(searchString);
         //       console.log(urlEncodedSearchString);
-        
-                
+
+
         //             renderMovies(data.Search);
         //           });
         //         console.log(newMovie);
         //         console.log('Is it broken');
-              
-        
+
+
         //       });
-        
-        
+
+
         //   });
-        
+
         //     function ButtonClicked() {
         //         $('#formsubmitbutton').hide();
         //         $('#formElem').hide();
-        //         $('#buttonreplacement').show(); 
+        //         $('#buttonreplacement').show();
         //         $('#buttonreplacement').append(
         //             `<h2>YOUR HERO</h2>
         //             <img src="img/sVen.jpg" alt="loading...">
@@ -212,5 +171,5 @@ recipeOp.addEventListener('click',function() {
         //             <h2>YOUR VILLIAN</h2>
         //             <img src="img/dragon-legendary-creature-sea-serpent-art-creatures-png-clip-art.png" alt="loading...">
         //             <p>Weapon Choice: ${$('#weaponChoiceV option:selected').text()}</p>`)
-        
+
         //     };
