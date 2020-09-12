@@ -24,12 +24,12 @@ $(()=> {
       let getIng = details.map(ingNew => {
         return ingNew.name;
       });
-        console.log(getIng);
+        
 
       let getAmount = details.map(ingAmt => {
           return ingAmt.original;
         });
-          console.log(getAmount);
+          
     
 
       const recipe = `
@@ -44,7 +44,7 @@ $(()=> {
       $('#recipeOp').append(recipe);
 
     $(`#${item.id}`).on("click", function() {
-      console.log('New Card');
+      
       $('#recipeOp').empty();
           
       $(function () {
