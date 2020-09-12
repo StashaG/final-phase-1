@@ -52,19 +52,19 @@ body {
 }
 
 .override-button-style {
-    color: #f9ba2e;
-    background-color: #e44142;
+    background-color: #f9ba2e !important;
+    color: #e44142;
 }
 
 .override-button-style:hover {
-    background-color: #f9ba2e;
+    background-color: #f9ba2e !important;
     color: #e44142;
 
 }
 
 #main_submit {
-    border-color: #e44142 !important;
-    color: #e44142 !important;
+    border-color: white !important;
+    color: #f9ba2e !important;
 }
 
 #main_submit:hover {
@@ -88,7 +88,6 @@ body {
     background-color:#f9ba2e !important;
     border-color: #f9ba2e !important;
 }
-
 
 .meal {
     width: 500px;
@@ -122,7 +121,6 @@ html .ui-buttion.ui-state-disabled:hover,
 html .ui-button.ui-state-disabled:active {
     /*tab color*/
     background: #e44142;
-  
     border: none;
   }
 
@@ -151,3 +149,14 @@ a:visited.ui-button,
     float: left !important; 
 }
 
+.navbar-light {
+    background: #ee4b4b !important;
+}
+
+div#meal {
+    margin: 10px 10px 30px 10px;
+}
+
+.header-text {
+    color: white;
+}

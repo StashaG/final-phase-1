@@ -1,4 +1,4 @@
-.meal {
+/* .meal {
   width: 500px;
   margin: 100px auto;
 }
@@ -24,6 +24,7 @@ img {
 html .ui-buttion.ui-state-disabled:hover,
 html .ui-button.ui-state-disabled:active {
   /*tab color*/
+  /*
   background: steelblue;
 
   border: none;
@@ -35,6 +36,7 @@ a.ui-button:active,
 .ui-button:active,
 .ui-button.ui-state-active:hover {
   /*tab hover color*/
+  /*
   background: lightseagreen;
 }
 .ui-state-default a,
@@ -45,5 +47,6 @@ a:link.ui-button,
 a:visited.ui-button,
 .ui-button {
   /*tab text color*/
+  /*
   color: white;
-}
+} */
