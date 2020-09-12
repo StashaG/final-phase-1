@@ -1,20 +1,21 @@
-let items = [];
+
 $(()=> {
 
   // const endpoint = "https://api.spoonacular.com/recipes/autocomplete?number=10&query=${$('.search-bar').val()}&apiKey=${apiKey3}";
-  
+  const items = [];
   
   $(".search-bar").on('input', function() {
-    console.log($('.search-bar').val());
+    // console.log($('.search-bar').val());
     let endpoint = `https://api.spoonacular.com/recipes/autocomplete?number=10&query=${$('.search-bar').val()}&apiKey=218d75a1a0d54dc1afef8d7d84763a57`;
-    console.log(endpoint);
+    // console.log(endpoint);
     fetch(endpoint)
+    // .then(blob => console.log(blob));
       .then(blob => blob.json())
       .then(data => {
-        console.log(data);
+        // console.log(data);
         items.push(...data)
         });  
-    console.log(items);
+    // console.log(items);
   
   });
   function findMatches(wordToMatch, items) {
