@@ -89,6 +89,7 @@ body {
     border-color: #f9ba2e !important;
 }
 
+
 .meal {
     width: 500px;
     margin: 100px auto;
@@ -145,3 +146,8 @@ a:visited.ui-button,
     /*tab text color*/
     color: white;
   }
+
+#home {
+    float: left !important; 
+}
+
