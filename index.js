@@ -125,7 +125,6 @@ $(`#${item.id}`).on("click", function() {
 
 function loading (){
   $('#recipeOp').empty();
-  $('.name').empty();
   $(".container").append("<div class = 'loading'><img src = 'images/loading.gif'></div>")
 }
 
