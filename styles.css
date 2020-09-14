@@ -93,6 +93,8 @@ body {
 }
 
 .suggestions {
+    /* visibility: hidden;
+    transition: 0.2s 1s; */
     background-color: #FAFAFA;
     position: absolute;
     box-shadow: 0 1px 3px 0px;
@@ -102,24 +104,28 @@ body {
     max-height: 250px;
     overflow-y: auto;
     list-style: none;
+    font-size: larger;
   }
   
   .suggestions ul {
-    /* list-style: none; */
     margin: 0;
     padding: 0;
+    visibility: visible;
   }
   
   .suggestions ul li {
     padding: 4px 12px;
-    /* list-style: none; */
+    
+    
   }
   
-  .suggestions ul li:focus,
-  .suggestions ul li:hover {
-    background-color: #03071e;
+  .suggestions li:focus,
+  .suggestions li:hover {
+    /* visibility: visible;
+    transition-delay: 0s;   */
+    background-color: #f9ba2e;
     cursor: pointer;
-    /* list-style: none; */
+    
   }
 
 #main_submit.focus,#main_submit:focus {
