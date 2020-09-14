@@ -100,8 +100,8 @@ body {
   }
 
   .suggestions li {
-    /* background: white; */
-    list-style: none;
+     background: white; 
+    list-style: none; 
     /* border-bottom: 1px solid #d8d8d8;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
     margin: 0;
