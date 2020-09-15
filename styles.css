@@ -121,8 +121,6 @@ body {
   
   .suggestions li:focus,
   .suggestions li:hover {
-    /* visibility: visible;
-    transition-delay: 0s;   */
     background-color: #f9ba2e;
     cursor: pointer;
     
