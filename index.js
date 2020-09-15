@@ -77,13 +77,12 @@ function getRecipe(item, image) {
   $('#recipeOp').append(recipe);
 
 $(`#${item.id}`).on("click", function() {
-
   $('#recipeOp').empty();
-
+  loading();
   $(function () {
     $("#tabs").tabs();
   });
-
+  removeLoading();
     const recipeChoice =`
         <div id= "tabs">
             <ul>
