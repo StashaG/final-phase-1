@@ -22,7 +22,7 @@ $(() => {
       return `
         
           <li id="listItem">
-            <option class="name">${item.name}</option>
+            <span class="name">${item.name}</span>
           </li>
           
           
@@ -49,6 +49,8 @@ $(() => {
     const data = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${title}}&number=20&apiKey=${apiKey}`)
     const items = await data.json();
     getRecipesWithFood(items);
+    $('#suggestions').empty()
+
   };
 
   function getRecipesWithFood(items) {
@@ -57,6 +59,7 @@ $(() => {
         .then(data => data.json())
         .then(recipe => getRecipe(recipe, item.image));
     });
+
   }
 
   function getRecipe(item, image) {
