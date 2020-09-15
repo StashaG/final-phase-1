@@ -5,6 +5,11 @@ body {
     background-position: right;
 }
 
+#suggestions {
+	position: absolute;
+	width: 250px;
+}
+
 #recipeOp {
     display: flex;
     flex-wrap: wrap;
