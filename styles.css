@@ -113,14 +113,12 @@ body {
     
   }
 
-   /* .suggestions li:nth-child(even) {
-    transform: perspective(100px) rotateX(3deg) translateY(2px) scale(1.001);
-    background: linear-gradient(to bottom, #ffffff 0%, #efefef 100%);
+  .suggestions li:focus,
+  .suggestions li:hover {
+    background-color: #f9ba2e;
+    cursor: pointer;
+    
   }
-  .suggestions li:nth-child(odd) {
-    transform: perspective(100px) rotateX(-3deg) translateY(3px);
-    background: linear-gradient(to top, #ffffff 0%, #efefef 100%);
-  } */
 
 #main_submit.focus,#main_submit:focus {
     box-shadow:0 0 0 .2rem #f9ba2e !important;
