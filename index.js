@@ -1,71 +1,77 @@
 
-$(()=> {
+$(() => {
 
-const suggestions = document.querySelector('.suggestions');
+  const suggestions = document.querySelector('.suggestions');
 
-let items = [];//empty array to put food items into
+  let items = [];//empty array to put food items into
 
-const getItems = () => {
-  const endpoint = `https://api.spoonacular.com/recipes/autocomplete?number=10&query=${$('.search-bar').val()}&apiKey=${apiKey}`;
-  loading();
-  fetch(endpoint).then(blob => blob.json()).then(data => {
-    items = [];
-    items.push(...data)
-  });
-  removeLoading();
-  displayMatches();
-};
-
-function displayMatches() {
-  suggestions.innerHTML = '';
-  const matchedItems = items.map(item => {
-    return `
-          <li>
-            <span class="name">${item.title}</span>
-          </li>
-    `;
-  });
-  suggestions.innerHTML = matchedItems.join('');
-};
-
-$('.hl').click(function(){
-  fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${$(this).text()}&number=2`)
-  .then(blob => blob.json())
-  .then(data => {
-    console.log(data);
+  const getItems = () => {
+    const endpoint = `https://api.spoonacular.com/food/ingredients/autocomplete?number=2&query=${$('.search-bar').val()}&apiKey=${apiKey}`;
+    loading();
+    fetch(endpoint).then(blob => blob.json()).then(data => {
+      items = [];
+      items.push(...data)
     });
-})
-const searchInput = document.querySelector('.search-bar');
+    removeLoading();
+    displayMatches();
+  };
 
-searchInput.addEventListener('keyup', getItems);
+  function displayMatches() {
+    suggestions.innerHTML = '';
+    const matchedItems = items.map(item => {
+      return `
+        
+          <li id="listItem">
+            <span class="name">${item.name}</span>
+          </li>
+          
+          
+    `;
+    });
+    suggestions.innerHTML = matchedItems.join('');
+  };
 
-document.getElementById('suggestions').addEventListener('click', e => getFoodsWithTitle(e.target.innerHTML));
+  $('#listItem').click(function () {
+    fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${$(this).text()}&number=2`)
+      .then(blob => blob.json())
+      .then(data => {
+        console.log(data);
+      });
+  })
+  const searchInput = document.querySelector('.search-bar');
 
-async function getFoodsWithTitle(title) {
-  $('#recipeOp').empty();
-  const data = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${title}}&number=20&apiKey=${apiKey}`)
-  const items = await data.json();
-  getRecipesWithFood(items);
-};
+  searchInput.addEventListener('keyup', getItems);
 
-function getRecipesWithFood(items) {
-  items.forEach((item, i) => {
+  document.getElementById('suggestions').addEventListener('click', e => getFoodsWithTitle(e.target.innerHTML));
+
+  async function getFoodsWithTitle(title) {
+    $('#recipeOp').empty();
+    const data = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${title}}&number=20&apiKey=${apiKey}`)
+    const items = await data.json();
+    getRecipesWithFood(items);
+    $('#suggestions').empty()
+
+  };
+
+  function getRecipesWithFood(items) {
+    items.forEach((item, i) => {
       fetch(`https://api.spoonacular.com/recipes/${item.id}/information?apiKey=${apiKey}`)
         .then(data => data.json())
         .then(recipe => getRecipe(recipe, item.image));
     });
-}
 
-function getRecipe(item, image) {
-  let details = item.extendedIngredients;
+  }
 
-  let getAmount = details.map(ingAmt => {
+  function getRecipe(item, image) {
+    let details = item.extendedIngredients;
+
+    let getAmount = details.map(ingAmt => {
       return ingAmt.original;
     });
 
 
 
-  const recipe = `
+    const recipe = `
     <div class="card" style="width: 18rem;">
       <h5 class="card-title" id="recipeName">${item.title}</h5>
       <img class="card-img-top"id="image" src="${image}" alt="Card image cap" />
@@ -74,17 +80,17 @@ function getRecipe(item, image) {
         <p class="card-text" id="recipe">${item.summary}</p>
       </div>
     </div>`;
-  $('#recipeOp').append(recipe);
+    $('#recipeOp').append(recipe);
 
-$(`#${item.id}`).on("click", function() {
+    $(`#${item.id}`).on("click", function () {
 
-  $('#recipeOp').empty();
+      $('#recipeOp').empty();
 
-  $(function () {
-    $("#tabs").tabs();
-  });
+      $(function () {
+        $("#tabs").tabs();
+      });
 
-    const recipeChoice =`
+      const recipeChoice = `
         <div id= "tabs">
             <ul>
              <li><a href="#tabs-1">Meal</a></li>
@@ -100,8 +106,8 @@ $(`#${item.id}`).on("click", function() {
             <h5>Ingredients:</h5>
             <ul>
             ${getAmount
-              .map((ingredient) => `<li>${ingredient}</li>`)
-              .join("")}
+          .map((ingredient) => `<li>${ingredient}</li>`)
+          .join("")}
 
             </ul>
            </div>
@@ -113,18 +119,18 @@ $(`#${item.id}`).on("click", function() {
 
 
 
-          $('#recipeOp').append(recipeChoice);
-  });
-}
+      $('#recipeOp').append(recipeChoice);
+    });
+  }
 
 });
 
 
-function loading (){
+function loading() {
   $(".container").append("<div class = 'loading'><img src = 'images/loading.gif'></div>")
 }
 
-function removeLoading () {
+function removeLoading() {
 
   $(".loading").remove();
 }
