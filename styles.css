@@ -5,6 +5,11 @@ body {
     background-position: right;
 }
 
+#suggestions {
+    position: absolute;
+    width: 250px;
+}
+
 #recipeOp {
     display: flex;
     flex-wrap: wrap;
@@ -100,26 +105,20 @@ body {
   }
 
   .suggestions li {
-    /* background: white; */
-    list-style: none;
-    /* border-bottom: 1px solid #d8d8d8;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
-    margin: 0;
-    padding: 20px;
-    transition: background 0.2s;
-    display: flex;
+     background: white; 
+    list-style: none; 
     justify-content: space-between;
-    text-transform: capitalize;*/
+    border-bottom: 1px solid #d8d8d8;
+    padding: 5px;
+    
   }
 
-   /* .suggestions li:nth-child(even) {
-    transform: perspective(100px) rotateX(3deg) translateY(2px) scale(1.001);
-    background: linear-gradient(to bottom, #ffffff 0%, #efefef 100%);
+  .suggestions li:focus,
+  .suggestions li:hover {
+    background-color: #f9ba2e;
+    cursor: pointer;
+    
   }
-  .suggestions li:nth-child(odd) {
-    transform: perspective(100px) rotateX(-3deg) translateY(3px);
-    background: linear-gradient(to top, #ffffff 0%, #efefef 100%);
-  } */
 
 #main_submit.focus,#main_submit:focus {
     box-shadow:0 0 0 .2rem #f9ba2e !important;
