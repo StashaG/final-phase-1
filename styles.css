@@ -68,7 +68,6 @@ body {
 
 }
 
-
 .form-inline {
     float: none;
     display: inline-block;
@@ -102,23 +101,22 @@ body {
     padding: 0;
     position: relative;
     /* perspective:20px; */
-  }
+}
 
-  .suggestions li {
-     background: white; 
+.suggestions li {
+    background: white; 
     list-style: none; 
     justify-content: space-between;
     border-bottom: 1px solid #d8d8d8;
     padding: 5px;
-    
-  }
+}
 
-  .suggestions li:focus,
-  .suggestions li:hover {
+.suggestions li:focus,
+.suggestions li:hover {
     background-color: #f9ba2e;
     cursor: pointer;
-    
-  }
+
+}
 
 #main_submit.focus,#main_submit:focus {
     box-shadow:0 0 0 .2rem #f9ba2e !important;
