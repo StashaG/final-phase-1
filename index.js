@@ -46,7 +46,7 @@ $(() => {
 
   async function getFoodsWithTitle(title) {
     $('#recipeOp').empty();
-    const data = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${title}}&number=20&apiKey=${apiKey}`)
+    const data = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${title}&number=20&apiKey=${apiKey}`)
     const items = await data.json();
     getRecipesWithFood(items);
     $('#suggestions').empty()
