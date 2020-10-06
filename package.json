@@ -1,0 +1,29 @@
+{
+  "name": "final-phase-1",
+  "version": "1.0.0",
+  "description": "Pantry Chef is an app that allows a user to input ingredients they have on hand and the app displays meal recipes that the user can make with those ingredients.  A user can also click the random recipe button and a random recipe will display that the user can make.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StashaG/final-phase-1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StashaG/final-phase-1/issues"
+  },
+  "homepage": "https://github.com/StashaG/final-phase-1#readme",
+  "devDependencies": {
+    "git-scripts": "^0.4.3",
+    "surge": "^0.21.6"
+  },
+  "git": {
+    "scripts": {
+      "pre-push": "surge /mnt/c/Users/15188/Documents/GitHub/final-phase-1/ ./ pantry-chef.surge.sh"
+    }
+  }
+}

@@ -38,7 +38,7 @@ body {
 }
 
 .card:hover {
-    background: #e44142;
+    background: #ee4b4b;
     transition: all 0.3s ease-in-out 0s;
     overflow: visible;
     height: auto;
@@ -47,11 +47,11 @@ body {
 
 .btn-warning {
     color: #f9ba2e !important;
-    background-color: #e44142 !important;
+    background-color: #ee4b4b !important;
 }
 
 .btn-warning:hover {
-    color: #e44142 !important;
+    color: #ee4b4b !important;
     background-color: #f9ba2e !important;
 }
 
@@ -77,12 +77,12 @@ body {
 
 .override-button-style {
     background-color: #f9ba2e !important;
-    color: #e44142;
+    color: #ee4b4b;
 }
 
 .override-button-style:hover {
     background-color: #f9ba2e !important;
-    color: #e44142;
+    color: #ee4b4b;
 
 }
 
@@ -93,8 +93,8 @@ body {
 
 #main_submit:hover {
     color:#f9ba2e !important;
-    background-color:#e44142;
-    border-color:#e44142;
+    background-color:#ee4b4b;
+    border-color:#ee4b4b;
 }
 
 .suggestions {
@@ -166,7 +166,7 @@ img {
 html .ui-buttion.ui-state-disabled:hover,
 html .ui-button.ui-state-disabled:active {
     /*tab color*/
-    background: #e44142;
+    background: #ee4b4b;
     border: none;
   }
 
@@ -196,7 +196,7 @@ a:visited.ui-button,
 }
 
 .navbar-light {
-    background: #e44142 !important;
+    background: #ee4b4b !important;
 }
 
 div#meal {
