@@ -5,17 +5,11 @@ body {
     background-position: right;
 }
 
-#suggestions {
-    position: absolute;
-    width: 250px;
-}
-
 #recipeOp {
     display: flex;
     flex-wrap: wrap;
     padding: 10px;
     margin: 10px;
-    color: white;
 }
 
 .on-load-image {
@@ -96,29 +90,6 @@ body {
     background-color:#ee4b4b;
     border-color:#ee4b4b;
 }
-
-.suggestions {
-    margin: 0;
-    padding: 0;
-    position: relative;
-    /* perspective:20px; */
-  }
-
-  .suggestions li {
-     background: white; 
-    list-style: none; 
-    justify-content: space-between;
-    border-bottom: 1px solid #d8d8d8;
-    padding: 5px;
-    
-  }
-
-  .suggestions li:focus,
-  .suggestions li:hover {
-    background-color: #f9ba2e;
-    cursor: pointer;
-    
-  }
 
 #main_submit.focus,#main_submit:focus {
     box-shadow:0 0 0 .2rem #f9ba2e !important;
