@@ -3,14 +3,14 @@
 Pantry Chef is an app that allows a user to input ingredients they have on hand and the app displays meal recipes that the user can make with those ingredients. 
 A user can also click the random recipe button and a random recipe will display that the user can make.
 
-[Live website] [https://pantry-chef.surge.sh/] (https://pantry-chef.surge.sh/)
+[Live website](https://pantry-chef.surge.sh/)(https://pantry-chef.surge.sh/)
 
 ## Goal of this project:
 - Build a useful front-end web application using two remote APIs.
 - Use the following front-end skills: HTML, CSS, JS, AJAX, and Bootstrap.
 - Use at least one JavaScript library that is not jQuery.
 - Use a CSS framework.
-- Deploy your application using Surge [https://surge.sh/]
+- Deploy your application using [Surge](https://surge.sh/)
 
 ## Technologies Used:
 
